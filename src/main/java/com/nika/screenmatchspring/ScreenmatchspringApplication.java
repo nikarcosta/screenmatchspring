@@ -2,11 +2,15 @@ package com.nika.screenmatchspring;
 
 import com.nika.screenmatchspring.model.DadosEpisodio;
 import com.nika.screenmatchspring.model.DadosSerie;
+import com.nika.screenmatchspring.model.DadosTemporada;
 import com.nika.screenmatchspring.service.ConsumoAPI;
 import com.nika.screenmatchspring.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class ScreenmatchspringApplication implements CommandLineRunner {
@@ -31,5 +35,16 @@ public class ScreenmatchspringApplication implements CommandLineRunner {
 
 		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
 		System.out.println(dadosEpisodio);
+
+		List<DadosTemporada> temporadas = new ArrayList<>();
+
+		for(int i = 1; i < dados.totalTemporadas(); i++){
+			json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&season=" + i + "&apikey=" + apiKey);
+
+			DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
+			temporadas.add(dadosTemporada);
+		}
+
+		temporadas.forEach(System.out::println);
 	}
 }
