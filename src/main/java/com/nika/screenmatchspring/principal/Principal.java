@@ -1,5 +1,6 @@
 package com.nika.screenmatchspring.principal;
 
+import com.nika.screenmatchspring.model.DadosEpisodio;
 import com.nika.screenmatchspring.model.DadosSerie;
 import com.nika.screenmatchspring.model.DadosTemporada;
 import com.nika.screenmatchspring.service.ConsumoAPI;
@@ -37,5 +38,12 @@ public class Principal {
 		}
 
 		temporadas.forEach(System.out::println);
+
+        for(int i = 0; i < dados.totalTemporadas(); i++){
+            List<DadosEpisodio> episodiosTemporada = temporadas.get(i).episodios();
+            for(int j = 0; j < episodiosTemporada.size(); j++){
+                System.out.println(episodiosTemporada.get(j).titulo());
+            }
+        }
     }
 }
