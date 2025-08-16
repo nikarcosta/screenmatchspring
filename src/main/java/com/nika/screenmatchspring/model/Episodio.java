@@ -31,6 +31,14 @@ public class Episodio {
 
     }
 
+    public Integer getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(Integer temporada) {
+        this.temporada = temporada;
+    }
+
     public String getTitulo() {
         return titulo;
     }
