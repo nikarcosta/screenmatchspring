@@ -20,7 +20,7 @@ public class Principal {
 
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
 
-    private final String API_KEY = "&apikey=9c2bac17";
+    private final String API_KEY = "&apikey=";
 
     private ConsumoAPI consumoApi = new ConsumoAPI();
 
