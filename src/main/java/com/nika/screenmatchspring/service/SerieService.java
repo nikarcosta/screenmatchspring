@@ -12,7 +12,7 @@ public class SerieService {
     private final ConsumoAPI consumoApi = new ConsumoAPI();
     private final ConverteDados conversor = new ConverteDados();
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = "&apikey=9c2bac17";
+    private final String API_KEY = "&apikey=";
 
     public DadosSerie buscarSerie(String nomeSerie){
         var json = consumoApi.obterDados(ENDERECO + nomeSerie.replace(" ", "+") + API_KEY);
